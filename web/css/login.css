@@ -1,0 +1,129 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column; /* Arrange elements vertically */
+}
+
+/* Allow the main content to grow and push the footer */
+body > .lgn-container {
+    flex: 1; /* Let the main content fill the remaining space */
+}
+
+/* Black and white theme styles */
+body {
+    background-color: #fff;  /* Set the background to white */
+    color: #000;  /* Default text color to black */
+}
+
+#background-image {
+    position: fixed;  /* Fixes the video in place */
+    top: 0;
+    left: 0;
+    width: 100%; /* Makes the video fill the entire width of the screen */
+    height: 100%; /* Makes the video fill the entire height of the screen */
+    object-fit: cover; /* Ensures the video covers the screen while maintaining its aspect ratio */
+    z-index: -1; /* Places the video behind the form */
+    
+}
+
+.lgn-container {
+    width: 100%;
+    height:auto;
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    border: 1px solid #000;  /* Set a black border */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    font-family: 'Poppins', sans-serif;
+}
+
+.lgn-back-link {
+    display: block;
+    margin-bottom: 15px;
+    color: #000;  /* Set link color to black */
+    text-decoration: none;
+}
+
+.lgn-login-form .lgn-title {
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 0.05em;
+    color: #000;  /* Set title color to black */
+}
+
+.lgn-container .lgn-back-link:hover {
+    text-decoration: underline;
+}
+
+.lgn-container .lgn-back-link {
+    font-size: 12px;
+}
+
+.lgn-login-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.lgn-login-form h2 {
+    text-align: center;
+    color: #000;  /* Set heading color to black */
+}
+
+.lgn-login-form input {
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ccc;  /* Light grey border for input fields */
+    border-radius: 5px;
+    background-color: #fff;  /* White background for inputs */
+    color: #000;  /* Black text inside inputs */
+}
+
+.lgn-login-form input:focus {
+    border-color: #000;  /* Black border when input is focused */
+    outline: none;
+}
+
+.lgn-login-form button {
+    padding: 10px;
+    background-color: #000;  /* Black button background */
+    color: #fff;  /* White text color for button */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 40px;
+    width: 100%;
+}
+
+.lgn-login-form button:hover {
+    background-color: #333;  /* Dark grey background on hover */
+}
+
+.lgn-redirect {
+    font-size: 12px;
+    color: #000;  /* Keep link color black */
+     margin-top: 30px;
+}
+
+.lgn-redirect a {
+    text-decoration: none;
+    color: #000;  /* Ensure the signup link is black */
+}
+
+.lgn-redirect a:hover {
+    text-decoration: underline;
+}
+
+.lgn-redirect a:active {
+    color: #333;  /* Dark grey when active */
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .lgn-container {
+        width: 90%;
+        margin: 20px auto;
+        padding: 15px;
+    }
+}

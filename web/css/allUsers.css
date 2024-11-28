@@ -1,0 +1,104 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f8fc;
+}
+
+.table-container {
+    width: 90%;
+    margin: 50px auto;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.styled-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.styled-table thead {
+    background-color: #007bff;
+    color: #ffffff;
+    text-align: left;
+    text-align: center;
+}
+
+.styled-table th, .styled-table td {
+    padding: 12px 15px;
+    border: 1px solid #dddddd;
+}
+
+.styled-table tbody .last-column{
+    text-align: center;
+}
+
+
+.styled-table tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.styled-table tbody tr:hover {
+    background-color: #e9f5ff;
+}
+
+.styled-table th {
+    font-weight: bold;
+}
+
+.styled-table td img {
+    max-width: 50px;
+    border-radius: 4px;
+}
+
+.update-btn, .delete-btn {
+    border: none;
+    padding: 8px 12px;
+    color: #ffffff;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 0 5px;
+}
+
+.update-btn {
+    background-color: #007bff;
+}
+
+.delete-btn {
+    background-color: #dc3545;
+}
+
+.update-btn:hover {
+    background-color: #0056b3;
+}
+
+.delete-btn:hover {
+    background-color: #b02a37;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .update-btn, .delete-btn {
+        padding: 6px 10px; /* Smaller padding for smaller screens */
+        font-size: 12px; /* Smaller font size */
+    }
+}
+
+@media (max-width: 576px) {
+    .styled-table {
+        font-size: 14px; /* Adjust table font size for smaller screens */
+    }
+
+    .update-btn, .delete-btn {
+        padding: 5px 8px;
+        font-size: 10px;
+        margin: 2px; /* Reduce margin between buttons */
+    }
+
+    .table-container {
+        width: 100%; /* Full width on very small screens */
+        margin: 20px auto;
+    }
+}

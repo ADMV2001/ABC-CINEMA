@@ -1,0 +1,156 @@
+.body-div{
+    font-family: 'poppins', sans-serif;
+    background-color: white;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    background-color: #fff;
+    padding: 20px 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 500px;
+    margin:10px;
+}
+
+h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+}
+
+.back-link {
+    display: block;
+    margin-bottom: 15px;
+    text-decoration: none;
+    color: black;
+    font-size: 14px;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+.add-movie-form input[type="text"],
+.add-movie-form input[type="date"],
+.add-movie-form input[type="time"],
+.add-movie-form input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.add-movie-form label {
+    font-size: 14px;
+    margin: 5px 0;
+    display: block;
+    color: #333;
+}
+
+.add-movie-form input[type="file"] {
+    padding: 5px;
+}
+
+.add-movie-form button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background-color: black;
+    color: #fff;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.add-movie-form button:hover {
+    background-color: red;
+}
+
+.time-duration input {
+    width: calc(50% - 5px);
+    display: inline-block;
+    margin-right: 10px;
+    margin-left: 0;
+}
+
+.add-movie-form .add-date-button{
+    text-decoration: none;
+    font-weight: bold;
+    color: darkblue;
+    width:100px;
+    height:auto;
+    font-size:12px;
+    margin-left:83%;
+
+}
+
+.add-movie-form .add-date-button:hover{
+    text-decoration: underline;
+}
+
+.add-movie-form .remove-date-button{
+    text-decoration: none;
+    font-weight: bold;
+    color: darkred;
+    width:100px;
+    height:auto;
+    font-size:12px;
+    margin-left:87%;
+}
+
+.add-movie-form .remove-date-button:hover{
+    cursor:pointer;
+    text-decoration: underline;
+}
+
+
+.checkbox-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.checkbox-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+input[type="checkbox"] {
+    transform: scale(1.2); /* Makes checkboxes larger */
+    margin-right: 5px;
+}
+
+.label{
+    font-weight: bold;
+}
+    
+@media (max-width:455px){
+    .add-movie-form .add-date-button{
+        margin-left:82%;
+    }
+}
+
+@media (max-width:434px){
+    .add-movie-form .add-date-button{
+        margin-left:78%;
+    }
+}
+
+@media (max-width:388px){
+    .add-movie-form .add-date-button{
+        margin-left:75%;
+    }
+
+    .container{
+        padding:30px;
+    }
+}

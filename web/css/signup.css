@@ -1,0 +1,129 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow: auto;
+}
+
+#background-image {
+    position: fixed;  /* Fixes the video in place */
+    top: 0;
+    left: 0;
+    width: 100%; /* Makes the video fill the entire width of the screen */
+    height: 100%; /* Makes the video fill the entire height of the screen */
+    object-fit: cover; /* Ensures the video covers the screen while maintaining its aspect ratio */
+    z-index: -1; /* Places the video behind the form */
+}
+
+.container {
+    width: 100%;
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    border: 1px solid lightgrey;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 10px;
+    z-index: 1;
+}
+
+.back-link {
+    display: block;
+    margin-bottom: 10px;
+    color: black; /* Change to black */
+    text-decoration: none;
+}
+
+.signup-title {
+    letter-spacing: 0.05em;
+}
+
+.container .back-link:hover {
+    text-decoration: underline;
+}
+
+.container .back-link {
+    font-size: 12px;
+}
+
+.signup-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.signup-form h2 {
+    text-align: center;
+    color: black; /* Change to black */
+}
+
+.signup-form input {
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.signup-form input:focus {
+    border-color: black; /* Change to black */
+    outline: none;
+}
+
+.signup-form button {
+    padding: 10px;
+    background-color: black; /* Change to black */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.signup-form button:hover {
+    background-color: white;
+    color:black;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+        margin: 20px auto;
+        padding: 15px;
+    }
+}
+
+.signup-form .terms {
+    display: flex;
+    align-items: center;
+    font-size: 0.8em;
+    color: #333; /* Keep dark text for readability */
+    margin: 10px 0;
+    margin-top: -17px;
+}
+
+.signup-form .terms input[type="checkbox"] {
+    margin-right: 8px;
+}
+
+.signup-form .terms a {
+    color: black; /* Change to black */
+    text-decoration: none;
+}
+
+.terms term {
+    font-size: 10px;
+}
+
+.signup-form .terms a:hover {
+    text-decoration: underline;
+}
+
+#error {
+    color: red;
+    font-family: Arial, sans-serif;
+    font-size: 0.9em;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+}

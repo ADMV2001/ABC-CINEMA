@@ -1,0 +1,293 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'poppins', sans-serif;
+}
+
+.navbar {
+    background-color: black;
+    border-radius: 0px;
+    padding: 10px 20px;
+    color: white;
+    position: relative;
+}
+
+.nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.hamburger {
+    font-size: 24px;
+    cursor: pointer;
+    margin-right: 20px;
+    display: none; 
+}
+
+.logo {
+    margin-right: 20px;
+    margin-top:7px;
+}
+
+.site-name {
+    margin-right: auto;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.search-bar {
+    font-family: 'poppins', sans-serif;
+    width: 300px;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 20px;
+    outline: none;
+    transition: border-color 0.3s;
+    margin-left: 10px;
+    background-color: white;
+    color: black;
+    margin-right: 20px;
+}
+
+.search-bar:focus {
+    border-color: blue;
+}
+
+.nav-links {
+    display: flex;
+    gap: 15px;
+    margin-right: 0;
+    
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+/* Dropdown menu */
+.dropdown, .mobile-dropdown {
+    position: relative;
+}
+
+.dropdown-menu, .mobile-dropdown-menu {
+    display: none;
+    position: absolute;
+    color: black;
+    background-color: white;
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+    z-index: 10;
+    margin-top: 5px;
+    min-width: 150px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Mobile dropdown menu */
+.mobile-dropdown-menu {
+    display: none;
+    color: black;
+    background-color: white;
+    border: 1px solid lightgrey;
+    border-radius: 10px;
+    z-index: 10;
+    padding: 3px;
+}
+
+/* Style links in the mobile dropdown */
+.mobile-dropdown-menu a {
+    display: block;
+    color: black;
+    padding: 10px;
+    text-decoration: none;
+}
+
+.mobile-dropdown-menu a:hover {
+    background-color: #f0f0f0;
+}
+
+/* Show dropdown when active */
+.dropdown-menu.show, .mobile-dropdown-menu.show {
+    display: block;
+}
+
+/* Auth buttons */
+.auth-buttons {
+    margin-right: 15px;
+    text-decoration: none;
+}
+
+.btn {
+    font-family: 'poppins', sans-serif;
+    letter-spacing: 0.05em;
+    background-color: white;
+    color: black;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-left: 5px;
+    text-decoration: none;
+}
+
+.btn:hover {
+    background-color: #e0e0e0;
+}
+
+/* Profile button */
+.profile {
+    display: flex;
+    align-items: center;
+}
+
+.profile-pic {
+    font-family: 'poppins',sans-serif;
+    letter-spacing:0.3em;
+    width: 40px;
+    height: 40px;
+    border-radius: 10%;
+    margin-bottom:5px;
+}
+
+/* Mobile menu styling */
+.mobile-menu {
+    z-index:2;
+    display: none;
+    background-color: white;
+    border-radius: 15px;
+    border: 1px solid lightgrey;
+    color: black;
+    position: absolute;
+    top: 60px;
+    left: 20px;
+    right: 20px;
+    padding: 15px;
+    z-index: 1;
+    max-width: 400px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-top:5px;
+    margin-left:-20px;
+    width:60%;
+}
+
+.mobile-menu button {
+    background-color: #00BFFF;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+.mobile-menu .btn1{
+    margin-left:0px;
+}
+
+.mobile-links a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 10px 0;
+}
+
+/* Active mobile menu */
+.mobile-menu.active {
+    display: block;
+    z-index:2;
+}
+
+/* Responsive styles */
+@media (max-width: 1075px) {
+    .search-bar {
+        display: block;
+        width: 200px; /* Adjust width for tablets */
+    }
+
+    .auth-buttons {
+        display: flex;
+    }
+
+    .navbar {
+        padding: 8px 15px;
+    }
+
+    .site-name {
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 910px) {
+    .nav-links {
+        display: none;
+    }
+
+    .search-bar {
+        display: none;
+    }
+
+    .auth-buttons {
+        display: none;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    .nav-container {
+        justify-content: space-between;
+    }
+
+    .mobile-links {
+        display: block;
+        color: black;
+    }
+
+    .mobile-links a {
+        color: #00BFFF;
+        font-weight: bold;
+    }
+
+    .mobile-dropdown-menu a {
+        color: black;
+    }
+
+    .logo-img {
+        height: 40px;
+    }
+
+    .site-name {
+        font-weight: bold;
+        font-size: 30px;
+    }
+
+    /* Mobile menu adjustments */
+    .mobile-menu.active {
+        display: block;
+        max-width: 90%;
+        left: 5%;
+        right: 5%;
+    }
+}
+
+@media (max-width: 910px){
+    .site-name {
+        font-weight: bold;
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 938px){
+    .site-name {
+        font-weight: bold;
+        font-size: 18px;
+    }
+}
+

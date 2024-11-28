@@ -1,0 +1,156 @@
+body{
+    background-color: white;
+}
+
+.welcome{
+    font-family: 'popins', sans-serif;
+    font-weight: bold;
+    font-size: 2rem;
+    text-align: center;
+    letter-spacing: 0.1em;
+    color: blue;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+.body {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin: 30px;
+    justify-content: center;
+    font-family: 'Poppins', sans-serif;
+}
+
+.admin-info{
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin: 30px;
+    justify-content: center;
+    font-family: 'Poppins', sans-serif;
+    
+}
+
+.admin-info-box{
+    width: 300px;
+    height: 120px;
+    background-color: white;
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.info-icon{
+    margin-right:auto;
+    margin-left:10px;
+    width:45px;
+    height:45px;
+}
+
+.info-title{
+    margin-right:auto;
+    margin-left:10px;
+}
+
+.info-amount-1{
+    margin-left:auto;
+    margin-right:10px;
+    margin-bottom:20px;
+    text-align:right;
+    color:green;
+    font-size:20px;
+}
+
+.info-amount-2{
+    margin-left:auto;
+    margin-right:10px;
+    margin-bottom:20px;
+    text-align:right;
+    color:blue;
+    font-size:20px;
+}
+
+.info-amount-3{
+    margin-left:auto;
+    margin-right:10px;
+    margin-bottom:20px;
+    text-align:right;
+    color:red;
+    font-size:20px;
+}
+
+.settings-div{
+    background-color: black;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding:5px;
+    font-family: 'Poppins', sans-serif;
+    width: 63%;
+    margin-left:18.5%;
+    border-radius:5px;
+}
+
+.settings-div h3{
+    color:white;
+    margin-right:auto;
+}
+
+.setting-icon{
+    width:25px;
+    height:25px;
+    margin-top:2px;
+    margin-right:5px;
+}
+
+.box {
+    width: 170px;
+    height: 170px;
+    background-color: #FBFCF8;
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Text style */
+.box-text {
+    color: black;
+    margin-top: 20px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Image style */
+.admin-logo {
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+    margin-bottom: 45px;
+}
+
+/* Hover effect */
+.box:hover {
+    background-color: #E8E9EB; /* Light blue color on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+}
+
+/* Click effect */
+.box:active {
+    transform: scale(1.05); /* Slight pop-up effect */
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.5);
+}
+
+
