@@ -1,15 +1,15 @@
-# Admin login details----------------------------------------------------------------
+## Admin login details
 
 username : admin
 password : 123
 
-# Web Application Database Setup-----------------------------------------------------
+## Web Application Database Setup
 
-# Prerequisites
+## Prerequisites
 - Install **MySQL** on your local machine.
 - Set up a MySQL user with appropriate privileges.
 
-# Database Setup
+## Database Setup
 1. clone the repository ABC-CINEMA
 2. import the database
      -  go to mysql workbench
