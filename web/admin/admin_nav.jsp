@@ -14,12 +14,14 @@
             <div class="site-name">ABC Cinema  |  Admin dashboard</div>
             <div class="nav-links">
                 <a href="${pageContext.request.contextPath}/index.jsp">Home</a>
+                <a href="#home" style="color:#FAB005">Logout</a>
             </div>     
         </div>
         
         <div class="mobile-menu" id="mobileMenu">
             <div class="mobile-links">
                 <a href="#home">Home</a>
+                <a href="#home">Logout</a>
             </div>
         </div>
     </nav>

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/AddMovie.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/admin/admin_nav.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/admin/admin-footer.css">
     <title>Add New Movie</title>
 </head>
 <body>
@@ -12,46 +13,39 @@
     
     <div class="body-div">
         <div class="container">
-        <a href="#" class="back-link">Admin Dashboard</a>
-            <form class="add-movie-form" action="movieServlet" method="post" enctype="multipart/form-data">
+        <a href="${pageContext.request.contextPath}/admin/adminHome.jsp" class="back-link">Admin Dashboard</a>
+            <form class="add-movie-form" action="${pageContext.request.contextPath}/AddMovieServlet" method="post" enctype="multipart/form-data">
+                
+                <% 
+                String errorMessage = (String) request.getAttribute("errMessage");
+                if (errorMessage != null) { 
+                %>
+                    <div style="color: red; font-size:12px; text-align:center;">
+                        <p><%= errorMessage %></p>
+                    </div>
+                <% 
+                    } 
+                %>
+                
+                <% 
+                String succMessage = (String) request.getAttribute("succMessage");
+                if (succMessage != null) { 
+                %>
+                    <div style="color: green; font-size:12px; text-align:center;">
+                        <p><%= succMessage %></p>
+                    </div>
+                <% 
+                    } 
+                %>
                 <h2>Add New Movie</h2>
 
                 <input id="movie-name" name="movieName" type="text" placeholder="Movie Name" required>
                 <input id="genre" name="genre" type="text" placeholder="Genre" required>
-                <div class="time-duration">
-                    <input id="hours" name="durationHours" type="text" placeholder="Duration (Hours)" required>
-                    <input id="minutes" name="durationMinutes" type="text" placeholder="Duration (Minutes)" required>
-                </div>
+                <input id="description" name="description" type="text" placeholder="Description" required>
+                <input id="duration" name="duration" type="text" placeholder="Duration(1hr 36min)" required>
+                
 
-                <label class="label">Select Dates</label>
-                <div id="date-picker-container">
-                    <div class="date-picker">
-                        <input type="date" name="available_dates" placeholder="Add Dates" required>
-                        <a href="#" class="add-date-button" onclick="addDatePicker()">Add Dates</a>
-                    </div>
-                </div>
-
-                <label class="label">Show Times</label>
-                <div class="checkbox-container">
-                    <div class="checkbox-item">
-                        <input type="checkbox" id="show1" name="show_times" value="10:30 AM">
-                        <label for="show1">10:30 AM</label>
-                    </div>
-                    <div class="checkbox-item">
-                        <input type="checkbox" id="show2" name="show_times" value="1:30 PM">
-                        <label for="show2">1:30 PM</label>
-                    </div>
-                    <div class="checkbox-item">
-                        <input type="checkbox" id="show3" name="show_times" value="4:30 PM">
-                        <label for="show3">4:30 PM</label>
-                    </div>
-                    <div class="checkbox-item">
-                        <input type="checkbox" id="show4" name="show_times" value="9:00 PM">
-                        <label for="show4">9:00 PM</label>
-                    </div>
-                </div> <br>
-
-                <label class="label" for="upload-image">Movie Poster</label>
+                <label class="label" for="upload-image">Add Movie Poster</label>
                 <input id="upload-image" name="posterImage" type="file" accept="image/*" required>
 
                 <button type="submit" value="addMovie">Add Movie</button>
@@ -60,21 +54,6 @@
 
     </div>
     
-    <script>
-        function addDatePicker() {
-            const container = document.getElementById('date-picker-container');
-            const newDatePicker = document.createElement('div');
-            newDatePicker.innerHTML = `
-                <input type="date" name="available_dates" required>
-                <a class="remove-date-button" onclick="removeDatePicker(this)">Remove</a>
-            `;
-            container.appendChild(newDatePicker);
-        }
-    
-        function removeDatePicker(button) {
-            button.parentElement.remove();
-        }
-    </script>
-    
+        <%@ include file="admin-footer.jsp" %>
 </body>
 </html>

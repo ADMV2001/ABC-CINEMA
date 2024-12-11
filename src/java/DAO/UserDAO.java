@@ -36,6 +36,29 @@ public class UserDAO {
         
         return isRegistered;
     }
+    
+    public boolean isEmailExist(String email)
+    {
+        boolean emailExists = false;
+        
+        String query = "SELECT * FROM users WHERE email = ?";
+        
+        try (Connection conn = DBConnect.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(query)) {
+            stmt.setString(1, email);
+            ResultSet rs = stmt.executeQuery();
+
+            // If a result is found, email is already registered
+            if (rs.next()) {
+                emailExists = true;
+            }
+        } 
+        catch (Exception ex) 
+        {
+            ex.printStackTrace();
+        }
+        return emailExists;
+    }
 
     public List<User> getAllUsers() {
         
@@ -74,6 +97,28 @@ public class UserDAO {
         return userList;
     }
     
+    public int getUserCount(){
+        int userCount = 0;
+        
+        try{
+            Connection con = DBConnect.getConnection();
+            String query = "SELECT COUNT(*) FROM users";
+            PreparedStatement stmt = con.prepareStatement(query);
+            
+            ResultSet rs = stmt.executeQuery(query);
+            
+            if (rs.next()) {
+                userCount = rs.getInt(1);
+            }
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+        
+        return userCount;
+    }
+    
     public User getUserById(int id)
     {
         User user = null;
@@ -103,6 +148,30 @@ public class UserDAO {
             e.printStackTrace();
         }
         return user;
+    }
+    
+    public boolean isValidUser(String email, String password)
+    {
+        boolean isValid = false;
+        
+        try{ 
+            Connection con = DBConnect.getConnection();
+            String query = "SELECT * FROM users WHERE email = ? AND password = ?";
+            PreparedStatement stmt = con.prepareStatement(query);
+            
+            stmt.setString(1, email);
+            stmt.setString(2, password);
+            
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                isValid = true;
+            }
+        } 
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+        return isValid;
     }
     
 }

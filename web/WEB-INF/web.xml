@@ -13,10 +13,6 @@
         <servlet-class>servlets.adminServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>DisplayAllBooksServlet</servlet-name>
-        <servlet-class>servlets.DisplayAllBooksServlet</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>UpdateBooks</servlet-name>
         <servlet-class>servlets.UpdateBooksServlet</servlet-class>
     </servlet>
@@ -27,6 +23,26 @@
     <servlet>
         <servlet-name>DeleteBookServlet</servlet-name>
         <servlet-class>servlets.DeleteBookServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddMovieServlet</servlet-name>
+        <servlet-class>servlets.AddMovieServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DisplayMoviesServlet</servlet-name>
+        <servlet-class>servlets.DisplayMoviesServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DisplayAllBooksServlet</servlet-name>
+        <servlet-class>servlets.DisplayAllBooksServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdateMovies</servlet-name>
+        <servlet-class>servlets.UpdateMoviesServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteMoviesServlet</servlet-name>
+        <servlet-class>servlets.DeleteMoviesServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Signup</servlet-name>
@@ -41,10 +57,6 @@
         <url-pattern>/admin/adminServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>DisplayAllBooksServlet</servlet-name>
-        <url-pattern>/displayAllBooks</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>UpdateBooks</servlet-name>
         <url-pattern>/updateBooks</url-pattern>
     </servlet-mapping>
@@ -55,5 +67,25 @@
     <servlet-mapping>
         <servlet-name>DeleteBookServlet</servlet-name>
         <url-pattern>/delete</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddMovieServlet</servlet-name>
+        <url-pattern>/AddMovieServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DisplayMoviesServlet</servlet-name>
+        <url-pattern>/DisplayMovies</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DisplayAllBooksServlet</servlet-name>
+        <url-pattern>/displayAllBooks</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateMovies</servlet-name>
+        <url-pattern>/UpdateMovies</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteMoviesServlet</servlet-name>
+        <url-pattern>/DeleteMovie</url-pattern>
     </servlet-mapping>
 </web-app>

@@ -33,16 +33,16 @@ public class DisplayAllUsersServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        // Get the list of all books from the database
+        // Get the list of all users from the database
         UserDAO userDAO = new UserDAO();
         List<User> userList = userDAO.getAllUsers();
         
         System.out.println("User list fetched, size: " + (userList != null ? userList.size() : 0));
 
-        // Set the book list as a request attribute
+        // Set the user list as a request attribute
         request.setAttribute("userList", userList);
 
-        // Forward the request to allBooks.jsp
+        // Forward the request to allUsers.jsp
         request.getRequestDispatcher("admin/allUsers.jsp").forward(request, response);
         
         //processRequest(request, response);

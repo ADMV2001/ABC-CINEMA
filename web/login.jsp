@@ -15,15 +15,25 @@
         <div class="lgn-container">
             <a href="${pageContext.request.contextPath}/index.jsp" class="lgn-back-link">Back to Home</a>
 
-            <form class="lgn-login-form" action="loginServlet" method="POST">
+            <% 
+                String errorMessage = (String) request.getAttribute("errorMessage");
+                if (errorMessage != null) { 
+            %>
+                <div class="error-message" style="color: red; font-size:11px; text-align:center;">
+                    <p><%= errorMessage %></p>
+                </div>
+            <% 
+                } 
+            %>
+            
+            <form class="lgn-login-form" action="loginServlet" method="post">
                 <h2 class="lgn-title">Login</h2>
 
                 <input id="lgn-email" name="email" type="text" placeholder="Email" required>
                 <input id="lgn-password" name="password" type="text" placeholder="Password" required>
-
+                <button type="submit">Login</button>
                 <label class="lgn-redirect">I don't have an account. <a href="${pageContext.request.contextPath}/signup.jsp">Signup here<a/></label>
 
-                <button type="submit">Login</button>
 
             </form>
         </div>

@@ -3,6 +3,7 @@ html, body {
     margin: 0;
     display: flex;
     flex-direction: column; /* Arrange elements vertically */
+    font-family:'poppins',sans-serif;
 }
 
 /* Allow the main content to grow and push the footer */
@@ -81,7 +82,7 @@ body {
 }
 
 .lgn-login-form input:focus {
-    border-color: #000;  /* Black border when input is focused */
+    border-color: black;  /* Black border when input is focused */
     outline: none;
 }
 
@@ -92,23 +93,26 @@ body {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    margin-top: 40px;
+    margin-top: 25px;
     width: 100%;
+    font-family:'poppins',sans-serif;
 }
 
 .lgn-login-form button:hover {
-    background-color: #333;  /* Dark grey background on hover */
+    background-color: red;
+    color:white;
 }
 
 .lgn-redirect {
-    font-size: 12px;
+    font-size: 13px;
     color: #000;  /* Keep link color black */
-     margin-top: 30px;
+    margin-top:10px;
+    text-align:center;
 }
 
 .lgn-redirect a {
     text-decoration: none;
-    color: #000;  /* Ensure the signup link is black */
+    color: red;  
 }
 
 .lgn-redirect a:hover {

@@ -7,6 +7,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import DAO.UserDAO;
 
 public class loginServlet extends HttpServlet {
 
@@ -40,13 +41,27 @@ public class loginServlet extends HttpServlet {
         
         if (email.equals("admin") && password.equals("123"))
         {
+            UserDAO userDAO = new UserDAO();
+            int userCount = userDAO.getUserCount();  // Assuming getUserCount() returns the number of users
+            
+            // Set the user count as a request attribute
+            request.setAttribute("userCount", userCount);
+
+            // Forward to admin dashboard (adminHome.jsp)
             RequestDispatcher dis1 = request.getRequestDispatcher("admin/adminHome.jsp");
-            dis1.forward(request,response);
+            dis1.forward(request, response);
         }
-        else
+        
+        UserDAO user = new UserDAO();
+        
+        if(user.isValidUser(email,password))
         {
-            RequestDispatcher dis2 = request.getRequestDispatcher("display.jsp");
-            dis2.forward(request,response);
+            response.sendRedirect("index.jsp");
+        }
+        else{
+            request.setAttribute("errorMessage", "Invalid email or password");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("login.jsp");
+            dispatcher.forward(request, response);
         }
         //processRequest(request, response);
     }

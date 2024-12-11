@@ -12,19 +12,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>All Users</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/allUsers.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/admin/admin_nav.css">
 </head>
 <body>
+    <%@ include file="admin_nav.jsp" %>
     
-    <c:if test="${not empty successMsg}">
-        <p style="color:green; text-align:center">${successMsg}</p>
-        <c:remove var="successMsg" scope="Session"/>
-    </c:if>
-
-    <c:if test="${not empty errorMsg}">
-        <p style="color:red; text-align:center">${errorMsg}</p>
-        <c:remove var="errorMsg" scope="Session"/>
-    </c:if>
+    <h2 style="text-align:center; color:#FAB005">Registered Users</h2>
     
+    <a href="${pageContext.request.contextPath}/admin/adminHome.jsp" style="margin-left:20px; color:white; font-size:13px">Back to Admin Dashboard</a>
     <div class="table-container">
         <table class="styled-table">
             <thead>
@@ -64,5 +59,6 @@
             </tbody>
         </table>
     </div>
+
 </body>
 </html>

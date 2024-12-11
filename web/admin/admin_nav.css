@@ -14,7 +14,7 @@ body {
 /* Navbar styling */
 .navbar {
     background-color: black;
-    border-radius: 15px;
+    border-radius: 0px;
     padding: 10px 20px;
     color: white;
     position: relative;

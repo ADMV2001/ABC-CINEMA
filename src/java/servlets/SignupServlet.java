@@ -44,19 +44,32 @@ public class SignupServlet extends HttpServlet {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         
-        boolean isTrue; 
-        isTrue = UserDAO.registerUser(fname, lname, email, mobile, username, password);
+        UserDAO user = new UserDAO();
+        boolean emailExists = user.isEmailExist(email);
         
-        if(isTrue == true)
+        if (emailExists)
         {
-            RequestDispatcher dis1 = request.getRequestDispatcher("login.jsp");
-            dis1.forward(request,response);
+            request.setAttribute("errorMessage", "-This email is already registered. Please try another one!-");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/signup.jsp");
+            dispatcher.forward(request, response);
         }
         else
         {
-            RequestDispatcher dis2 = request.getRequestDispatcher("error.jsp");
-            dis2.forward(request,response);
-        }
+            boolean isTrue;
+            isTrue = user.registerUser(fname, lname, email, mobile, username, password);
+            
+            if(isTrue)
+            {
+                RequestDispatcher dis1 = request.getRequestDispatcher("login.jsp");
+                dis1.forward(request,response);
+            }
+            else
+            {
+                request.setAttribute("errorMessage", "Registration Error!.");
+                RequestDispatcher dispatcher = request.getRequestDispatcher("signup.jsp");
+                dispatcher.forward(request, response);
+            }
+        }                
         //processRequest(request, response);
     }
 

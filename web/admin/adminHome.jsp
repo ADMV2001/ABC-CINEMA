@@ -5,6 +5,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/css/adminHome.css"/>
         <link rel="stylesheet" href="${pageContext.request.contextPath}/admin/admin_nav.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/admin/admin-footer.css">
         <title>Admin Dashboard</title>
     </head>
     <body>
@@ -12,25 +13,26 @@
         
         <div class="admin-info">
             <div class="admin-info-box">
-                <img src="${pageContext.request.contextPath}/admin/images/info-users.png" alt="info-users" class="info-icon"/>
+                <img src="${pageContext.request.contextPath}/admin/images/display1.png" alt="info-users" class="info-icon"/>
                 <h3 class="info-title">Registered Users</h3>
-                <h4 class="info-amount-1">100</h4>
+                <h4 class="info-amount-1"><%= request.getAttribute("userCount") %></h4>
             </div>
+            
             <div class="admin-info-box">
-                <img src="${pageContext.request.contextPath}/admin/images/info-feedback.png" alt="info-users" class="info-icon"/>
-                <h3 class="info-title">Feedbacks</h3>
-                <h4 class="info-amount-2">100</h4>
-            </div>
-            <div class="admin-info-box">
-                <img src="${pageContext.request.contextPath}/admin/images/info-movies.png" alt="info-users" class="info-icon"/>
-                <h3 class="info-title">Ongoing Movies</h3>
+                <img src="${pageContext.request.contextPath}/admin/images/display3.png" alt="info-users" class="info-icon"/>
+                <h3 class="info-title">Active Movies</h3>
                 <h4 class="info-amount-3">05</h4>
+            </div>
+                
+            <div class="admin-info-box">
+                <img src="${pageContext.request.contextPath}/admin/images/display2.png" alt="info-users" class="info-icon"/>
+                <h3 class="info-title">Customer Feedbacks</h3>
+                <h4 class="info-amount-2">100</h4>
             </div>
         </div>
                 
         <div class="settings-div">
-            <img class="setting-icon" src="${pageContext.request.contextPath}/admin/images/settings.png" alt="settings"/>
-            <h3>Settings | Visualization</h3>
+            <h3 style="color:#FAB005">Admin Settings</h3>
         </div>
             
 
@@ -38,15 +40,15 @@
 
             <div class="box" onclick="location.href='${pageContext.request.contextPath}/admin/AddMovie.jsp';">
                 <p class="box-text">Add New Movie</p>
-                <img src="${pageContext.request.contextPath}/admin/images/add.png" alt="Add Book Icon" class="admin-logo">
+                <img src="${pageContext.request.contextPath}/admin/images/addIcon.png" alt="Add Book Icon" class="admin-logo">
             </div>
-            <div class="box" onclick="location.href='${pageContext.request.contextPath}/displayAllBooks';">
+            <div class="box" onclick="location.href='${pageContext.request.contextPath}/DisplayMovies';">
                 <p class="box-text">Active Movies</p>
-                <img src="${pageContext.request.contextPath}/admin/images/all.png" alt="Box 2 Icon" class="admin-logo">
+                <img src="${pageContext.request.contextPath}/admin/images/movieIcon.png" alt="Box 2 Icon" class="admin-logo">
             </div>
             <div class="box" onclick="location.href='${pageContext.request.contextPath}/displayAllUsers';">
                 <p class="box-text">Users</p>
-                <img src="${pageContext.request.contextPath}/admin/images/users.png" alt="Box 2 Icon" class="admin-logo">
+                <img src="${pageContext.request.contextPath}/admin/images/userIcon.png" alt="Box 2 Icon" class="admin-logo">
             </div>
             <div class="box" onclick="location.href='orders.jsp';">
                 <p class="box-text">Slider Change</p>
@@ -58,6 +60,7 @@
             </div>
             
         </div>
-
+      
+        <%@ include file="admin-footer.jsp" %>
     </body>
 </html>
