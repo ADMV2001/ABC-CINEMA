@@ -9,7 +9,6 @@
 <body>
   <div class="footer-body-div">
     <footer class="footer">
-        <h1 style="color:#FAB005">Welcome Admin</h1>
       <div class="footer-container">
         <div class="footer-logo">
           <img src="${pageContext.request.contextPath}/images/logo.png" alt="logo" class="footer-logo-image">

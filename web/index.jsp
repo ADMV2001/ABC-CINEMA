@@ -12,8 +12,10 @@
     </head>
     <body style="background-color:black">
         <%@ include file="components/nav.jsp"%>
+        
         <%@ include file="components/slider.jsp" %>
         
+        <%@ include file="movieSection.jsp" %>
         
         <%@ include file="components/footer.jsp" %>
     </body>

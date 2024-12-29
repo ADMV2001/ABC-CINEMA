@@ -76,8 +76,8 @@ a.button {
 }
 
 a.button:hover {
-  color: #fff;
-  background-color: black;
+  color: black;
+  background-color: white;
 }
 
 .trailer{

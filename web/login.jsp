@@ -30,7 +30,7 @@
                 <h2 class="lgn-title">Login</h2>
 
                 <input id="lgn-email" name="email" type="text" placeholder="Email" required>
-                <input id="lgn-password" name="password" type="text" placeholder="Password" required>
+                <input id="lgn-password" name="password" type="password" placeholder="Password" required>
                 <button type="submit">Login</button>
                 <label class="lgn-redirect">I don't have an account. <a href="${pageContext.request.contextPath}/signup.jsp">Signup here<a/></label>
 

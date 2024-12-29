@@ -1,0 +1,96 @@
+/* General body styling */
+body {
+    background-color: #222;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    color: #fff;
+}
+
+/* Centering and styling the form container */
+form {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    padding: 30px;
+    max-width: 600px;
+    margin: 50px auto;
+    color: #333;
+}
+
+.show-back-link{
+    color:black;
+    text-decoration:none;
+    font-size:13px;
+    
+}
+
+.show-back-link:hover{
+    text-decoration:underline;
+}
+
+.select{
+    margin-top:10px;
+}
+
+/* Form element styles */
+label {
+    font-size: 14px;
+    margin-bottom: 5px;
+    display: block;
+    color: #333;
+}
+
+select,
+input[type="date"],
+input[type="time"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+/* Button styles */
+button {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    border: none;
+    background-color: black;
+    color: white;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: red;
+}
+
+/* Showtimes container */
+#showtimesContainer {
+    margin-top: 20px;
+}
+
+.showtime {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 15px;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+/* Adjustments for smaller screens */
+@media (max-width: 600px) {
+    form {
+        padding: 20px;
+    }
+
+    button {
+        width: 100%;
+    }
+}

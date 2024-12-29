@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Connection;
 
+
 import util.DBConnect;
 import models.Movie;
 
@@ -99,6 +100,26 @@ public class MovieDAO {
             e.printStackTrace();
         }
         return movie;
+    }
+    
+    public String getMovieNameById(int movieId) {
+        String movieName = "";
+        
+        String query = "SELECT movie_name FROM movies WHERE movie_id = ?";
+        
+        try (Connection conn = DBConnect.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(query)) {
+            stmt.setInt(1, movieId);
+            ResultSet rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                movieName = rs.getString("movie_name");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+        return movieName;
     }
     
     public boolean updateMovie(Movie movie) {

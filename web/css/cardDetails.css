@@ -1,0 +1,158 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    color: #333;
+}
+
+.container {
+    width: 90%;
+    max-width: 700px;
+    margin: 50px auto;
+    padding: 20px;
+    background: #222;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+h1 {
+    color: white;
+    margin-bottom: 20px;
+}
+
+.payment-methods {
+    margin-bottom: 30px;
+}
+
+.payment-methods h2 {
+    color: white;
+    margin-bottom: 15px;
+}
+
+.methods {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.method {
+    flex: 1;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    background: #f9f9f9;
+}
+
+.method.active {
+    border-color: #44c767;
+    background: #eaffea;
+}
+
+.method i {
+    font-size: 24px;
+    color: #44c767;
+}
+
+.method p {
+    margin-top: 10px;
+    color: #333;
+    font-weight: bold;
+}
+
+.method:hover {
+    background: #eaffea;
+    border-color: #44c767;
+}
+
+/* Form Styles */
+.payment-form {
+    text-align: left;
+}
+
+.payment-form h2 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin: 10px 0 5px;
+}
+
+.cd-input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.row {
+    display: flex;
+    gap: 15px;
+}
+
+.col {
+    flex: 1;
+}
+
+.cd-button {
+    width: 100%;
+    padding: 12px;
+    background-color: #44c767;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.cd-button:hover {
+    background-color: #3bb657;
+}
+
+/* Terms and checkbox inline */
+/* Align checkbox and text in one line *//* Terms Section Styling */
+.terms {
+    display: flex;
+    align-items: center; /* Align items vertically in the center */
+    font-size: 14px;
+    color: #555;
+    margin-top: 15px;
+}
+
+.terms input[type="checkbox"] {
+    margin-right: 8px; /* Spacing between checkbox and text */
+    cursor: pointer;
+}
+
+.terms label {
+    margin: 0; /* Removes default label margins */
+}
+
+.terms-link {
+    color: #4a73f5; /* Blue link color */
+    text-decoration: none; /* Remove underline */
+    font-weight: bold;
+}
+
+.terms-link:hover {
+    text-decoration: underline; /* Add underline on hover */
+}
+
+.form-heading {
+    color: white;
+}
+.form-label {
+    color: white;
+}
+
+
+

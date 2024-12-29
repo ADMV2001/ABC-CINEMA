@@ -1,0 +1,150 @@
+/* General Styles */
+body, html {
+    font-family: 'Poppins', sans-serif;
+    background-color: #000000;
+    color: #dcdcdc;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    height: 100%;
+    overflow: hidden; /* Prevent scrolling */
+}
+
+/* Center Main Content */
+main {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+
+/* Confirmation Container */
+.confirmation-container {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Full height */
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 40px;
+    overflow: hidden;
+    background: #000000;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
+}
+
+/* Fading Image Effect */
+.confirmation-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    background-image: url('${pageContext.request.contextPath}/components/images/moana2.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 0;
+
+    /* Improved Gradient Mask */
+    mask-image: linear-gradient(to left, rgba(0, 0, 0, 1) 70%, rgba(0, 0, 0, 0) 100%);
+    -webkit-mask-image: linear-gradient(to left, rgba(0, 0, 0, 1) 70%, rgba(0, 0, 0, 0) 100%);
+}
+
+/* Content Section */
+.confirmation-content {
+    position: relative;
+    z-index: 1;
+    width: 45%;
+    padding: 30px;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+.notification-message{
+    margin-top:10px;
+}
+
+/* Headings and Messages */
+.confirmation-container h2 {
+    font-size: 2.5em;
+    color: #ffffff;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.success-message {
+    font-size: 1.3em;
+    color: #4CAF50;
+    margin-bottom: 25px;
+    font-weight: 600;
+}
+
+/* Order Summary */
+.order-summary {
+    background: rgba(20, 20, 20, 0.8);
+    padding: 20px;
+    border-radius: 12px;
+    margin-top: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.order-summary h3 {
+    font-size: 1.6em;
+    margin-bottom: 15px;
+    color: #2993c4;
+    border-bottom: 2px solid #2993c4;
+    padding-bottom: 10px;
+}
+
+/* Details List */
+.details {
+    list-style: none;
+    padding: 0;
+}
+
+.details li {
+    display: flex;
+    justify-content: space-between;
+    margin: 12px 0;
+    font-size: 1.1em;
+    color: #dcdcdc;
+}
+
+.details li strong {
+    color: #fff;
+}
+
+/* Buttons */
+.buttons {
+    margin-top: 30px;
+}
+
+.button {
+    width:31%;
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: #2993c4;
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    margin-right: 10px;
+    font-size: 1em;
+    font-weight: 500;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-align:center;
+}
+
+.button:hover {
+    background-color: #192ee6;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(25, 46, 230, 0.5);
+}
+
+.button:active {
+    transform: translateY(1px);
+}

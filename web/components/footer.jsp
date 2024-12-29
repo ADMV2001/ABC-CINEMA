@@ -30,19 +30,20 @@
           </div>
           <div class="footer-links">
             <a href="${pageContext.request.contextPath}/index.jsp">Home</a>
-            <a href="#">About Us</a>
-            <a href="#">Privacy Policy</a>
-            <a href="#">Contact</a><br>
+            <a href="${pageContext.request.contextPath}/components/aboutUs.jsp">About Us</a>
+            <a href="${pageContext.request.contextPath}/components/terms.jsp">Privacy Policy</a>
+            <a href="${pageContext.request.contextPath}/components/faq.jsp">FAQ</a>
+            <a href="${pageContext.request.contextPath}/components/contactUs.jsp">Contact</a><br>
           </div>
 
           <div class="f-contact-main">
             <div class="f-contact">
                 <img class="email-icon" src="${pageContext.request.contextPath}/components/images/email.png" alt="email-icon">
-                <p> supportabc@cinemaabc.com</p>
+                <a style="color:white;" href="#"> supportabc@cinemaabc.com</a>
               </div>
               <div class="f-contact f-contact-2">
                 <img class="email-icon" src="${pageContext.request.contextPath}/components/images/call.png" alt="call-icon">
-                <p> +94-000000000</p>
+                <p> 011-000 0000</p>
               </div>
           </div>
           

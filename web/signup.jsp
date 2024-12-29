@@ -42,7 +42,7 @@
 
             <label class="terms">
                 <input type="checkbox" name="term" required>
-                I agree to the&nbsp;<a href="#">terms and conditions.</a>
+                I agree to the&nbsp;<a href="${pageContext.request.contextPath}/components/terms.jsp">terms and conditions.</a>
             </label>
             
             <button type="submit" value="signup">Sign Up</button>

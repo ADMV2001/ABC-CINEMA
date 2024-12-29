@@ -11,30 +11,32 @@
         <nav class="navbar">
         <div class="nav-container">
             <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
-            <div class="logo"><img src="${pageContext.request.contextPath}/images/logo.png" alt="logo" class="profile-pic"></div>
-            <div class="site-name">ABC CINEMA</div>
+            <div onclick="location.href='${pageContext.request.contextPath}/index.jsp';" class="logo"><img src="${pageContext.request.contextPath}/images/logo.png" alt="logo" class="logo"></div>
+            <div class="site-name"></div>
             <input type="text" placeholder="Search" class="search-bar">
             <div class="nav-links">
                 <a href="${pageContext.request.contextPath}/index.jsp">Home</a>
-                <a href="#">Contact</a>
-                <a href="#about">About</a>
+                <a href="${pageContext.request.contextPath}/components/bookingSummary.jsp">Bookings</a>
+                <a href="${pageContext.request.contextPath}/components/contactUs.jsp">Contact</a>
+                <a href="${pageContext.request.contextPath}/components/aboutUs.jsp">About</a>
             </div>
             <div class="auth-buttons">
                 <button onclick="location.href='${pageContext.request.contextPath}/login.jsp';" class="btn">Login</button>
                 <button onclick="location.href='${pageContext.request.contextPath}/signup.jsp';" class="btn">Sign Up</button>
             </div>
-            <div class="profile">
+            <div onclick="location.href='${pageContext.request.contextPath}/components/userProfile.jsp';" class="profile">
                 <img src="${pageContext.request.contextPath}/images/profile.png" alt="Profile" class="profile-pic"> 
             </div>
         </div>
         
         <div class="mobile-menu" id="mobileMenu">
             <div class="mobile-links">
-                <a href="#home">Home</a>
-                <a href="#contact">Contact</a>
-                <a href="#about">About</a>
-                <button class="btn btn1">Login</button>
-                <button class="btn btn2">Sign Up</button>
+                <a href="${pageContext.request.contextPath}/index.jsp">Home</a>
+                <a href="${pageContext.request.contextPath}/components/bookingSummary.jsp">Bookings</a>
+                <a href="${pageContext.request.contextPath}/components/contactUs.jsp">Contact</a>
+                <a href="${pageContext.request.contextPath}/components/aboutUs.jsp">About</a>
+                <button onclick="location.href='${pageContext.request.contextPath}/login.jsp';" class="btn btn1">Login</button>
+                <button onclick="location.href='${pageContext.request.contextPath}/signup.jsp';" class="btn btn2">Sign Up</button>
             </div>
         </div>
     </nav>

@@ -19,6 +19,25 @@
     
     <h2 style="text-align:center; color:#FAB005">Registered Users</h2>
     
+    <%
+                    String errorMessage = (String) request.getAttribute("errorMessage");
+                    String succMessage = (String) request.getAttribute("succMessage");
+                    session.removeAttribute("errorMessage");
+                    session.removeAttribute("succMessage");
+                %>
+
+                <% if (errorMessage != null) { %>
+                    <div style="color: red; font-size:12px; text-align:center;">
+                        <p><%= errorMessage %></p>
+                    </div>
+                <% } %>
+
+                <% if (succMessage != null) { %>
+                    <div style="color: green; font-size:12px; text-align:center;">
+                        <p><%= succMessage %></p>
+                    </div>
+                <% } %>
+    
     <a href="${pageContext.request.contextPath}/admin/adminHome.jsp" style="margin-left:20px; color:white; font-size:13px">Back to Admin Dashboard</a>
     <div class="table-container">
         <table class="styled-table">
@@ -49,7 +68,7 @@
                                 <td><%= user.getUsername() %></td>
                                 <td><%= user.getPassword() %></td>
                                 <td class="last-column">
-                                    <button type="button" class="delete-btn">Delete</button>
+                                    <button onclick="location.href='${pageContext.request.contextPath}/DeleteUser?userId=<%=user.getUserId()%>'" type="button" class="delete-btn">Delete</button>
                                 </td>
                             </tr>
                 <%

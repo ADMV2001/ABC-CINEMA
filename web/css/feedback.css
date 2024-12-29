@@ -1,0 +1,90 @@
+body {
+            font-family: 'poppins', sans-serif;
+            background-color: black;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #222;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #28a745;
+            text-align: center;
+        }
+
+        p {
+            text-align: center;
+            margin: 10px 0 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #28a745;
+        }
+
+        .feed-input, textarea, select {
+            font-family: 'poppins', sans-serif;
+            font-size: 16px;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #28a745;
+            border-radius: 4px;
+            outline: none;
+        }
+
+        .feed-input:focus, textarea:focus, select:focus {
+            border-color: #2ecc71;
+            box-shadow: 0 0 5px rgba(40, 167, 69, 0.5);
+        }
+        
+        .feed-label{
+            color:white;
+        }
+
+        .feed-btn {
+            background-color: red;
+            color: #ffffff;
+            font-size: 18px;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-family: 'poppins', sans-serif;
+        }
+
+        .feed-btn:hover {
+            background-color: white;
+            color:black;
+        }
+
+        .success-message {
+            display: none;
+            text-align: center;
+            color: #28a745;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        .error-message {
+            display: none;
+            text-align: center;
+            color: #dc3545;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+

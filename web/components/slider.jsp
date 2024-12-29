@@ -23,7 +23,7 @@
                   <h2>
                     Red One (2024)
                   </h2>
-                  <a href="#" class="button">Book Now</a>
+                  <a href="${pageContext.request.contextPath}/components/seatBooking.jsp" class="button">Book Now</a>
                   <div><a href="#" class="trailer">Watch Trailer </a></div>
                   <div class="slider-desc-div">
                       <p class="slider-desc">When a villain kidnaps Santa Claus from the North Pole, an E.L.F. (Extremely Large and Formidable) operative joins 

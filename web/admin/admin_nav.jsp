@@ -11,7 +11,7 @@
     <nav class="navbar">
         <div class="nav-container">
             <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
-            <div class="site-name">ABC Cinema  |  Admin dashboard</div>
+            <div class="site-name">Admin dashboard</div>
             <div class="nav-links">
                 <a href="${pageContext.request.contextPath}/index.jsp">Home</a>
                 <a href="#home" style="color:#FAB005">Logout</a>

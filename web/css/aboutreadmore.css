@@ -1,0 +1,163 @@
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", Arial, sans-serif;
+        }
+
+        
+        body {
+            background-color: #1a1a1a;
+            color: #fff;
+            line-height: 1.6;
+        }
+
+        
+        .header {
+            background: linear-gradient(145deg, #000000, #0c0101);
+            background-size: 200% 200%;
+            animation: gradientAnimation 6s infinite alternate;
+            text-align: center;
+            padding: 60px 20px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header h1 {
+            font-size: 48px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .header p {
+            font-size: 20px;
+            margin-top: 10px;
+            color: #ffecec;
+            animation: fadeIn 2.5s ease-in-out;
+        }
+
+        
+        @keyframes gradientAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
+            100% {
+                background-position: 100% 50%;
+            }
+        }
+
+        
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        
+        .about-section {
+            padding: 60px 20px;
+        }
+
+        .about-section .container {
+            display: flex;
+            max-width: 1200px;
+            margin: 0 auto;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .content {
+            flex: 1;
+            padding-right: 30px;
+        }
+
+        h2 {
+            font-size: 36px;
+            color: #ff4d4d;
+            margin-bottom: 20px;
+        }
+
+        h3 {
+            font-size: 24px;
+            margin-top: 20px;
+            color: #ffc0c0;
+        }
+
+        p {
+            font-size: 18px;
+            color: #eaeaea;
+            margin-bottom: 15px;
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 20px 0;
+        }
+
+        ul li {
+            font-size: 16px;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        ul li strong {
+            color: #ff4d4d;
+        }
+
+        
+        .book-now-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 25px;
+            font-size: 16px;
+            color: #fff;
+            background: linear-gradient(90deg, #ff4d4d, #d60000);
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(255, 77, 77, 0.5);
+        }
+
+        .book-now-btn:hover {
+            background: linear-gradient(90deg, #d60000, #a30000);
+            transform: scale(1.05);
+        }
+
+        
+        .image {
+            flex: 1;
+        }
+
+        .image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7);
+            transition: transform 0.3s ease;
+        }
+
+        .image img:hover {
+            transform: scale(1.05);
+        }
+
+        
+        .footer {
+            background: #222;
+            color: #fff;
+            text-align: center;
+            padding: 15px 20px;
+            margin-top: 20px;
+        }
+
+        .footer p {
+            font-size: 14px;
+        }

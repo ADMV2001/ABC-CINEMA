@@ -44,6 +44,26 @@
         <servlet-name>DeleteMoviesServlet</servlet-name>
         <servlet-class>servlets.DeleteMoviesServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>imageServlet</servlet-name>
+        <servlet-class>servlets.imageServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ShowTimesDates</servlet-name>
+        <servlet-class>servlets.ShowtimesServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>PaymentServlet</servlet-name>
+        <servlet-class>servlets.PaymentServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteUserServlet</servlet-name>
+        <servlet-class>servlets.DeleteUserServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SeatAvailabilityServlet</servlet-name>
+        <servlet-class>servlets.SeatAvailabilityServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Signup</servlet-name>
         <url-pattern>/signup</url-pattern>
@@ -87,5 +107,25 @@
     <servlet-mapping>
         <servlet-name>DeleteMoviesServlet</servlet-name>
         <url-pattern>/DeleteMovie</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>imageServlet</servlet-name>
+        <url-pattern>/image</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ShowTimesDates</servlet-name>
+        <url-pattern>/ShowTimesDates</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PaymentServlet</servlet-name>
+        <url-pattern>/payment</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteUserServlet</servlet-name>
+        <url-pattern>/DeleteUser</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SeatAvailabilityServlet</servlet-name>
+        <url-pattern>/SeatAvailability</url-pattern>
     </servlet-mapping>
 </web-app>

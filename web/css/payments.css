@@ -1,0 +1,211 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    font-family: 'poppins', sans-serif;
+    background-color: #222;
+    color: #fff;
+    background-color: black;  /* Slightly lighter black for better contrast */
+    color: #f2f2f2; /* Soft white for text */
+    overflow-x: hidden;
+}
+
+
+.checkout-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 3rem; /* More space between sections */
+    margin: 2rem auto;
+    width: 90%;
+    max-width: 1000px;
+}
+
+/* Payment Details and Summary */
+.payment-details,
+.summary {
+    background-color: #000000;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    width: 60%;
+}
+
+/* Card Options */
+.card-options img {
+    width: 50px;
+    cursor: pointer;
+    transition: transform 0.3s, border 0.3s;
+    padding: 10px;
+    border-radius: 15px;
+    border: 2px solid transparent;
+}
+
+.card-options img:hover {
+    transform: scale(1.1);
+    border: 3px solid #4eb0ce;
+}
+
+.card-options img.selected {
+    border: 3px solid #4eb0ce;
+    transform: scale(1.1);
+}
+
+/* Heading and Labels */
+h2 {
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #333;
+    padding-bottom: 0.5rem;
+}
+
+label {
+    display: block;
+    margin-top: 1rem;
+    font-weight: bold;
+}
+
+/* Input, Select, and Button Styles */
+input, select, .p-button {
+    width: 100%;
+    margin-top: 0.5rem;
+    padding: 0.8rem 1rem; /* Added padding for comfort */
+    font-size: 1rem;
+    border: 1px solid #333;
+    border-radius: 15px;
+    box-sizing: border-box;
+}
+
+input:focus, select:focus, .p-button:focus {
+    border: 2px solid #007bff;
+    outline: none;
+}
+
+.p-button {
+    background-color: #0069d9; /* Slightly brighter blue */
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    margin-top: 1.5rem;
+}
+
+.p-button:hover {
+    background-color: #0056b3;
+}
+
+.p-button:active {
+    background-color: #004085; /* Darker shade when clicked */
+}
+
+/* Movie Summary Section */
+.movie-summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.movie-image {
+    width: 120px;
+    height: 180px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.movie-image:hover {
+    transform: scale(1.05); /* Slight scale increase for a subtle effect */
+}
+
+/* Discount Section */
+.discount-section {
+    margin-top: 1px;
+}
+
+.discount-section label {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #535353;
+}
+
+.discount-section input {
+    flex: 1;
+    padding: 0.8rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.discount-section input:focus {
+    border-color: #007bff;
+}
+
+.discount-section .p-button {
+    padding: 0.8rem 1.5rem; /* More comfortable button size */
+    font-size: 1rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.discount-section .p-button:hover {
+    background-color: #0056b3;
+}
+
+/* Summary Section */
+.summary-section {
+    background-color: rgba(20, 20, 20, 0.8);
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+}
+
+.summary-section .summary-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.summary-section .total {
+    font-size: 20px;
+}
+
+/* Snowflake Animation */
+.snowflake {
+    position: fixed;
+    top: -10px;
+    width: 10px;
+    height: 10px;
+    background-color: white;
+    border-radius: 50%;
+    opacity: 0.8;
+    animation: fall 5s linear forwards;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh);
+        opacity: 0.5;
+    }
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .checkout-container {
+        flex-direction: column; /* Stack elements vertically on smaller screens */
+        width: 90%;
+    }
+
+    .payment-details, .summary {
+        width: 100%;
+    }
+
+    h2 {
+        font-size: 1.2rem; /* Adjust font size for smaller screens */
+    }
+}

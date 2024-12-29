@@ -11,30 +11,43 @@ import util.DBConnect;
 
 public class UserDAO {
     
-    public static boolean registerUser(String fname,String lname,String email,String mobile, String username, String password)
-    {
-        boolean isRegistered = false;
-        
-        try(Connection con = DBConnect.getConnection();
-             Statement stmt = con.createStatement())
-        {   
-            String query = "INSERT INTO users values(0,'"+fname+"', '"+lname+"', '"+email+"', '"+mobile+"', '"+username+"', '"+password+"')";
-            int rs = stmt.executeUpdate(query);
-            
-            if(rs > 0)
-            {
-                isRegistered = true;
-            }
-            else
-            {
-                isRegistered = false;
-            }                
-        }
-        catch(Exception e){
+    public boolean addUser(String fname, String lname, String email, String mobile, String username, String password) {
+        Connection conn = null;
+        PreparedStatement stmt = null;
+
+        try {
+            conn = DBConnect.getConnection();
+            String query = "INSERT INTO users (first_name, last_name, email, mobile, username, password) VALUES (?, ?, ?, ?, ?, ?)";
+
+            stmt = conn.prepareStatement(query);
+            stmt.setString(1, fname);
+            stmt.setString(2, lname);
+            stmt.setString(3, email);
+            stmt.setString(4, mobile);
+            stmt.setString(5, username);
+            stmt.setString(6, password);
+
+            int rowsAffected = stmt.executeUpdate();
+
+            return rowsAffected > 0;
+        } 
+        catch (Exception e) 
+        {
             e.printStackTrace();
+            return false;
+        } 
+        finally {
+            try {
+                if (stmt != null) {
+                    stmt.close();
+                }
+                if (conn != null) {
+                    conn.close();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
-        
-        return isRegistered;
     }
     
     public boolean isEmailExist(String email)
@@ -150,6 +163,24 @@ public class UserDAO {
         return user;
     }
     
+    public int getUserIdByEmail(String email) {
+        int userId = -1;  // Default invalid user ID
+
+        String query = "SELECT user_id FROM users WHERE email = ?";
+        try (Connection con = DBConnect.getConnection();
+             PreparedStatement stmt = con.prepareStatement(query)) {
+            stmt.setString(1, email);
+            ResultSet rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                userId = rs.getInt("user_id");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return userId;
+    }
+    
     public boolean isValidUser(String email, String password)
     {
         boolean isValid = false;
@@ -174,4 +205,27 @@ public class UserDAO {
         return isValid;
     }
     
+    public boolean deleteUser(int id)
+    {
+        boolean isDeleted = false;
+        
+        try(Connection con = DBConnect.getConnection())
+        {
+            String query = "DELETE FROM users where user_id = ?";
+            PreparedStatement ps = con.prepareStatement(query);
+            ps.setInt(1, id);
+            int rs = ps.executeUpdate();
+            
+            if(rs > 0)
+            {
+                isDeleted = true;
+            }
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+        
+        return isDeleted;
+    }
 }
