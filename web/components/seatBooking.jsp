@@ -4,6 +4,8 @@
 <%@ page import="java.time.format.DateTimeFormatter" %>
 <%@ page import="DAO.ShowtimesDAO" %>
 <%@ page import="models.Showtimes" %>
+<%@ page import="DAO.BookingDAO" %>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -15,10 +17,20 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/components/nav.css"/>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/components/footer.css"/>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        .selected {
+            background-color: #4CAF50; /* Green for selection */
+            color: white;
+        }
+        .disabled {
+            background-color: #ccc; /* Grey for booked seats */
+            cursor: not-allowed;
+        }
+    </style>
 </head>
 <body>
     <header>
-        <%@ include file="nav.jsp"%>
+        <%@ include file="nav.jsp" %>
     </header>
 
     <div class="seat-body-div">
@@ -33,10 +45,10 @@
                         ShowtimesDAO dao = new ShowtimesDAO();
                         List<Showtimes> showtimes = dao.getShowtimesForMovie(selectedMovieId);
                         List<String> uniqueDates = new ArrayList<>();
-                        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd"); // Adjust the pattern if needed
+                        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
                         for (Showtimes showtime : showtimes) {
-                            String showDateStr = showtime.getShowDate().format(formatter); // Convert LocalDate to String
+                            String showDateStr = showtime.getShowDate().format(formatter);
                             if (!uniqueDates.contains(showDateStr)) {
                                 uniqueDates.add(showDateStr);
                     %>
@@ -72,9 +84,26 @@
             </div>
 
             <div class="center-section">
-                <h1>Choose Your Seats</h1>
+            <h1>Choose Your Seats</h1>
                 <div class="seat-container">
-                    <!-- Seats will be dynamically populated -->
+                    <%
+                        // Get the booked seats from the request attribute
+                        List<String> bookedSeats = (List<String>) request.getAttribute("bookedSeats");
+
+                        for (int i = 1; i <= 60; i++) {
+                            boolean isBooked = false;
+                            if (bookedSeats != null && bookedSeats.contains(String.valueOf(i))) {
+                                isBooked = true;
+                            }
+                    %>
+                    <button 
+                        class="seat <%= isBooked ? "disabled" : "" %>" 
+                        id="seat-<%= i %>" 
+                        data-id="<%= i %>" 
+                        <%= isBooked ? "disabled" : "" %> >
+                        Seat <%= i %>
+                    </button>
+                    <% } %>
                 </div>
             </div>
 
@@ -97,110 +126,108 @@
                     <input type="hidden" name="showtime_id" id="showtime-id" value=""/>
                     <input type="hidden" name="selected_date" id="selected-date" value=""/>
                     <input type="hidden" name="selected_time" id="selected-time" value=""/>
-                    <input type="hidden" name="seats[]" id="selected-seats" value=""/>
+                    <input type="hidden" name="seats[]" id="seats-input" value=""/>
                     <input type="hidden" name="total_amount" id="total-amount" value=""/>
-                    <button type="submit" id="proceed-btn" class="hidden">Proceed to Checkout</button>
+                    <button type="submit" id="submit-btn" class="disabled" disabled>Proceed to Checkout</button>
                 </form>
             </div>
         </div>
-    </div>  
+    </div>
 
-    <%@ include file="footer.jsp" %>
+    <footer>
+        <%@ include file="footer.jsp" %>
+    </footer>
 
     <script>
-        const dateContainer = document.querySelector('.date-container');
-        const timeContainer = document.querySelector('.time-container');
-        const seatContainer = document.querySelector('.seat-container');
-        const proceedButton = document.getElementById('proceed-btn');
+        document.addEventListener("DOMContentLoaded", function () {
+    const seatButtons = document.querySelectorAll('.seat');
+    const quantityElement = document.getElementById('summary-quantity');
+    const totalAmountElement = document.getElementById('summary-total');
+    const totalAmountInput = document.getElementById('total-amount');
+    const submitButton = document.getElementById('submit-btn');
+    const seatPrice = 550;
 
-        const ticketPriceElement = document.getElementById('ticket-price');
-        const quantityElement = document.getElementById('summary-quantity');
-        const totalAmountElement = document.getElementById('summary-total');
-        const totalAmountInput = document.getElementById('total-amount');
+    let selectedSeats = [];
 
-        const seatPrice = 550;
-        let selectedDate = null;
-        let selectedTime = null;
-        let selectedSeats = [];
-        let selectedSeatsCount = 0;
-
-        // Handle date selection and show relevant showtimes
-        dateContainer.addEventListener('click', (event) => {
-            if (event.target.classList.contains('date')) {
-                selectedDate = event.target.dataset.date;
-                document.querySelectorAll('.date').forEach(date => date.classList.remove('selected'));
-                event.target.classList.add('selected');
-
-                const times = document.querySelectorAll('.time');
-                times.forEach(time => {
-                    if (time.dataset.date === selectedDate) {
-                        time.style.display = 'block';
-                    } else {
-                        time.style.display = 'none';
-                    }
-                });
-
-                document.getElementById('selected-date').value = selectedDate;
+    // Handle seat selection
+    seatButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            if (!button.classList.contains('disabled')) {
+                button.classList.toggle('selected');
+                const seatId = button.dataset.id;
+                if (button.classList.contains('selected')) {
+                    selectedSeats.push(seatId);
+                } else {
+                    selectedSeats = selectedSeats.filter(id => id !== seatId);
+                }
+                updatePaymentSummary();
             }
         });
+    });
 
-        // Handle showtime selection and trigger seat loading
-        timeContainer.addEventListener('click', (event) => {
-            if (event.target.classList.contains('time')) {
-                selectedTime = event.target.dataset.time;
-                const showtimeId = event.target.dataset.id;
-                document.getElementById('showtime-id').value = showtimeId;
-                document.getElementById('selected-time').value = selectedTime;
+    // Update payment summary
+    function updatePaymentSummary() {
+        const selectedSeatsCount = selectedSeats.length;
+        quantityElement.textContent = selectedSeatsCount;
+        totalAmountElement.textContent = selectedSeatsCount * seatPrice;
+        totalAmountInput.value = selectedSeatsCount * seatPrice;
+        document.getElementById('seats-input').value = selectedSeats.join(',');
+        
+        // Enable or disable the submit button based on the selections
+        if (selectedSeatsCount > 0 && selectedDateElement.value && selectedTimeElement.value) {
+            submitButton.classList.remove('disabled');
+            submitButton.disabled = false;
+        } else {
+            submitButton.classList.add('disabled');
+            submitButton.disabled = true;
+        }
+    }
 
-                document.querySelectorAll('.time').forEach(time => time.classList.remove('selected'));
-                event.target.classList.add('selected');
+    // Handle date selection
+    const dateElements = document.querySelectorAll('.date');
+    const timeElements = document.querySelectorAll('.time');
+    const selectedDateElement = document.getElementById('selected-date');
+    const selectedTimeElement = document.getElementById('selected-time');
 
-                loadSeats(showtimeId);
+    // Handle date selection
+    dateElements.forEach(dateElement => {
+        dateElement.addEventListener('click', function () {
+            // Mark the selected date
+            dateElements.forEach(date => date.classList.remove('selected'));
+            this.classList.add('selected');
+
+            // Set the selected date in the hidden input field
+            selectedDateElement.value = this.dataset.date;
+
+            // Show available showtimes for the selected date
+            updateShowtimesForDate(this.dataset.date);
+        });
+    });
+
+    // Handle time selection
+    timeElements.forEach(timeElement => {
+        timeElement.addEventListener('click', function () {
+            // Mark the selected time
+            timeElements.forEach(time => time.classList.remove('selected'));
+            this.classList.add('selected');
+
+            // Set the selected time in the hidden input field
+            selectedTimeElement.value = this.dataset.time;
+            document.getElementById('showtime-id').value = this.dataset.id;
+        });
+    });
+
+    // Function to show the available showtimes for the selected date
+    function updateShowtimesForDate(date) {
+        timeElements.forEach(time => time.style.display = 'none');
+        timeElements.forEach(time => {
+            if (time.dataset.date === date) {
+                time.style.display = 'block';
             }
         });
+    }
+});
 
-        // Fetch and render seats dynamically
-        function loadSeats(showtimeId) {
-            fetch(`${window.location.origin}/SeatAvailability?showtime_id=${showtimeId}`)
-                .then(response => response.json())
-                .then(data => {
-                    const { availableSeats, bookedSeats } = data;
-
-                    seatContainer.innerHTML = '';
-
-                    availableSeats.forEach(seat => {
-                        const seatDiv = document.createElement('div');
-                        seatDiv.className = 'seat';
-                        seatDiv.textContent = seat.seat_number;
-                        seatDiv.dataset.id = seat.seat_id;
-
-                        seatDiv.addEventListener('click', () => {
-                            seatDiv.classList.toggle('selected');
-                            selectedSeats = Array.from(document.querySelectorAll('.seat.selected')).map(seat => seat.textContent);
-                            selectedSeatsCount = selectedSeats.length;
-                            updatePaymentSummary();
-                        });
-
-                        seatContainer.appendChild(seatDiv);
-                    });
-
-                    bookedSeats.forEach(seat => {
-                        const seatDiv = document.createElement('div');
-                        seatDiv.className = 'seat disabled';
-                        seatDiv.textContent = seat.seat_number;
-                        seatContainer.appendChild(seatDiv);
-                    });
-                }); 
-        }
-
-        function updatePaymentSummary() {
-            quantityElement.textContent = selectedSeatsCount;
-            totalAmountElement.textContent = selectedSeatsCount * seatPrice;
-            totalAmountInput.value = selectedSeatsCount * seatPrice;
-            document.getElementById('selected-seats').value = selectedSeats.join(',');
-            proceedButton.classList.toggle('hidden', selectedSeatsCount === 0);
-        }
     </script>
-
 </body>
 </html>

@@ -10,6 +10,41 @@
     min-height: 88vh;
 }
 
+#submit-btn.disabled {
+    background-color: #ccc; /* Grey for disabled */
+    cursor: not-allowed;
+}
+
+#submit-btn {
+    width: 100%;
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 600;
+    transition: 0.3s ease;
+    display: none; /* Hide the button initially */
+}
+
+#submit-btn:not(.disabled) {
+    display: block; /* Show the button when enabled */
+}
+
+.selected {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+
 .container {
     display: flex;
     justify-content: space-between;

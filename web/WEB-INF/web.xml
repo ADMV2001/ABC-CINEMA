@@ -61,8 +61,8 @@
         <servlet-class>servlets.DeleteUserServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>SeatAvailabilityServlet</servlet-name>
-        <servlet-class>servlets.SeatAvailabilityServlet</servlet-class>
+        <servlet-name>BookingServlet</servlet-name>
+        <servlet-class>servlets.BookingServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Signup</servlet-name>
@@ -125,7 +125,7 @@
         <url-pattern>/DeleteUser</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>SeatAvailabilityServlet</servlet-name>
-        <url-pattern>/SeatAvailability</url-pattern>
+        <servlet-name>BookingServlet</servlet-name>
+        <url-pattern>/Booking</url-pattern>
     </servlet-mapping>
 </web-app>
